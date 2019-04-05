@@ -9,18 +9,16 @@ body {
 .title {
     text-align: center;
 }
-img {
-    align-content: center;
-}
 
 li {
     padding: 5px;
     margin: 5px;
     background: #faebd7;
 }
-img {
+.img {
     height:150px;
     width:175px;
+    align:center;
 }
 
 .label {
@@ -36,9 +34,12 @@ img {
 .form-group {
     margin-bottom: 5px;
 }
-.eaten {
-    float:left;
+.notDevouredBurgersSection {
+background-color: aqua;
 }
-.devoured {
-    float:right;
+.devouredBurgersSection {
+background-color: peachpuff;
+}
+.col-md-12 {
+    align-content:center
 }

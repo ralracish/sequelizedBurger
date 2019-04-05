@@ -1,10 +1,48 @@
-$(function() {
-    $(".change-eaten").on("click", function(event) {
+$(function () {
+    // Get all the burgers
+    $.ajax("/api/burgers", {
+        type: "GET",
+    }).then((data) => {
+        console.log(data)
+        //console.log(data)
+        data.forEach(element => {
+            if (element.devoured === false) {
+                let row = `
+                    <div class='row'>
+                        <div class="col-md-8">
+                        <p>${element.burger_name}</p>
+                        </div>
+                        <div class="col-md-4">
+                        <Button burgerId=${element.id} class="btn btn-success devourBurger">Devour!</Button>
+                         <div class="eat">Eat It!</div>
+                         </div>
+                    </div>
+                    `;
+                $(".notDevouredBurgersSection").append(row);
+            }
+            
+            if(element.devoured === true) {
+                let devouredRow = `
+                <div class='row'>
+                    <div class="col-md-12">
+                        <p>${element.burger_name}</p>
+                    </div>
+                </div>
+                `;
+               
+                $(".devouredBurgersSection").append(devouredRow);
+            }
+        });
+        console.log("created new burger")
+        });
+    $(document).on("click",".devourBurger", function(event) {
         event.preventDefault();
-        const id = $(this).data("id");
+        const id = $(this).attr("burgerId");
+        console.log(id)
 
         const newEatenState = {
-            devoured: true, burger_id:id
+            devoured: true,
+            burger_id: id
         };
         console.log(newEatenState)
 
@@ -17,12 +55,12 @@ $(function() {
         });
     });
 
-    $(".add-burger").on("click", function(event) {
+    $(".add-burger").on("click", function (event) {
         event.preventDefault();
 
         const newBurger = {
-        burger_name: $("#burg").val().trim(),
-        devoured: false
+            burger_name: $("#burg").val().trim(),
+            devoured: false
         }
         console.log(newBurger)
 
@@ -33,6 +71,6 @@ $(function() {
             console.log("created new burger")
             location.reload();
         });
-    })
+    });
 })
 
