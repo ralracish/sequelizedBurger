@@ -14,6 +14,7 @@ li {
     padding: 5px;
     margin: 5px;
     background: #faebd7;
+    border:2px;
 }
 .img {
     height:150px;
@@ -35,10 +36,10 @@ li {
     margin-bottom: 5px;
 }
 .notDevouredBurgersSection {
-background-color: aqua;
+background-color: red;
 }
 .devouredBurgersSection {
-background-color: peachpuff;
+background-color: green;
 }
 .col-md-12 {
     align-content:center

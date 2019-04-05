@@ -7,14 +7,14 @@
 //==========================================================================
 
 // Requiring our Burgers model
-const db = require("../models");
+const db = require('../models');
 
 //Routes
 //==========================================================================
 module.exports = (app) => {
 
   // GET route for getting all of the posts
-  app.get("/api/burgers/", (req, res) => {
+  app.get('/api/burgers/', (req, res) => {
     db.Burgers.findAll({})
       .then((dbBurgers) => {
         console.log(dbBurgers)
@@ -23,7 +23,7 @@ module.exports = (app) => {
   });
 
   // Get route for returning posts of a specific category
-  app.get("/api/burgers/devoured/:devoured", (req, res) => {
+  app.get('/api/burgers/devoured/:devoured', (req, res) => {
     db.Burgers.findAll({
       where: {
         devoured: req.params.devoured
@@ -35,7 +35,7 @@ module.exports = (app) => {
   });
 
   // Get route for retrieving a single post
-  app.get("/api/burgers/:id", (req, res) => {
+  app.get('/api/burgers/:id', (req, res) => {
     db.Burgers.findOne({
       where: {
         id: req.params.id
@@ -47,7 +47,7 @@ module.exports = (app) => {
   });
 
   // POST route for saving a new post
-  app.post("/api/burgers", (req, res) => {
+  app.post('/api/burgers', (req, res) => {
     console.log(req.body);
     db.Burgers.create({
       burger_name: req.body.burger_name,
@@ -60,7 +60,7 @@ module.exports = (app) => {
   });
 
   // DELETE route for deleting posts
-  app.delete("/api/posts/:id", (req, res) => {
+  app.delete('/api/posts/:id', (req, res) => {
     db.Burgers.destroy({
       where: {
         id: req.params.id
@@ -72,7 +72,7 @@ module.exports = (app) => {
   });
 
   // PUT route for updating posts
-  app.put("/api/burgers", (req, res) => {
+  app.put('/api/burgers', (req, res) => {
     db.Burgers.update(
       {
         devoured: req.body.devoured
