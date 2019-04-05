@@ -12,7 +12,7 @@ $(function () {
                         <p>${element.burger_name}</p>
                         </div>
                         <div class='col-md-4'>
-                        <Button burgerId=${element.id} class='btn btn-default devourBurger'>Devour!</Button>
+                        <Button burgerId=${element.id} class='btn btn-defaulthe devourBurger'>Devour!</Button>
                          </div>
                     </div>
                     `;
